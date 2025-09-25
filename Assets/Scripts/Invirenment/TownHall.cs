@@ -9,12 +9,6 @@ public class NewMonoBehaviourScript : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>().sprite;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnMouseDown()
     {
         if (!UIManager.Instance.IsInvirenmentPanelActive())
