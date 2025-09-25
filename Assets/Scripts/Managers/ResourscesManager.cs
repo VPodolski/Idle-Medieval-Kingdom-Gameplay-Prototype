@@ -37,6 +37,11 @@ public class ResourscesManager : MonoBehaviour
     {
         Instance = this;
 
+        Wood = 10;
+        Food = 10;
+        Metal = 10;
+        Peasants = 10;
+
         WoodProduction = 0;
         FoodProduction = 0;
         MetalProduction = 0;
