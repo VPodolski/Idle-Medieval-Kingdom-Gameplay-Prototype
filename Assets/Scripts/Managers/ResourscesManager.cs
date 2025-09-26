@@ -6,31 +6,29 @@ public class ResourscesManager : MonoBehaviour
 
     public decimal Wood { get; set; }
     public decimal Food { get; set; }
-    public decimal Metal { get; set; }
+    public decimal Rock { get; set; }
     public decimal Peasants { get; set; }
 
     public decimal WoodProduction { get; set; }
     public decimal FoodProduction { get; set; }
-    public decimal MetalProduction { get; set; }
+    public decimal RockProduction { get; set; }
     public decimal PeasantsProduction { get; set; }
 
 
     void Start()
     {
         InvokeRepeating("Tick", 1f, 1f);
+        UIManager.Instance.UpdateResources(Wood, Food, Rock, Peasants);
     }
 
     void Tick()
     {
         Wood += WoodProduction;
         Food += FoodProduction;
-        Metal += MetalProduction;
+        Rock += RockProduction;
         Peasants += PeasantsProduction;
 
-        Debug.Log("Wood: " + Wood);
-        Debug.Log("Food: " + Food);
-        Debug.Log("Metal: " + Metal);
-        Debug.Log("Peasants: " + Peasants);
+        UIManager.Instance.UpdateResources(Wood, Food, Rock, Peasants);
     }
 
     private void Awake()
@@ -39,26 +37,26 @@ public class ResourscesManager : MonoBehaviour
 
         Wood = 10;
         Food = 10;
-        Metal = 10;
+        Rock = 10;
         Peasants = 10;
 
-        WoodProduction = 0;
-        FoodProduction = 0;
-        MetalProduction = 0;
-        PeasantsProduction = 0;
+        WoodProduction = 0.1m;
+        FoodProduction = 0.1m;
+        RockProduction = 0.1m;
+        PeasantsProduction = 0.1m;
     }
 
-    public bool SpendResources(decimal wood, decimal food, decimal metal, decimal peasants)
+    public bool SpendResources(decimal wood, decimal food, decimal rock, decimal peasants)
     {
         var result = true;
 
-        var isEnoughResources = Wood >= wood && Food >= food && Metal >= metal && Peasants >= peasants;
+        var isEnoughResources = Wood >= wood && Food >= food && Rock >= rock && Peasants >= peasants;
 
         if (isEnoughResources)
         {
             Wood -= wood;
             Food -= food;
-            Metal -= metal;
+            Rock -= rock;
             Peasants -= peasants;
         }
         else
@@ -69,11 +67,11 @@ public class ResourscesManager : MonoBehaviour
         return result;
     }
 
-    public void IncreaseProduction(decimal wood, decimal food, decimal metal, decimal peasants)
+    public void IncreaseProduction(decimal wood, decimal food, decimal rock, decimal peasants)
     {
         WoodProduction += wood;
         FoodProduction += food;
-        MetalProduction += metal;
+        RockProduction += rock;
         PeasantsProduction += peasants;
     }
 }

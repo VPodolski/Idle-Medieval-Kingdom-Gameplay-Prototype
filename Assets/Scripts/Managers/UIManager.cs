@@ -5,6 +5,7 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance;
 
     public InverementPanel inverementPanel;
+    public ResourcesPanel resourcesPanel;
 
     private void Awake()
     {
@@ -27,4 +28,8 @@ public class UIManager : MonoBehaviour
         inverementPanel.Hide();
     }
 
+    public void UpdateResources(decimal wood, decimal food, decimal rock, decimal peasants)
+    {
+        resourcesPanel.UpdateResources(wood.ToString(), food.ToString(), rock.ToString(), peasants.ToString());
+    }
 }

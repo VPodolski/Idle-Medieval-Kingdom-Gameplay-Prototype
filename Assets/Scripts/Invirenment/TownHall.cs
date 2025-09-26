@@ -18,7 +18,7 @@ public class NewMonoBehaviourScript : MonoBehaviour, IInvirenment
         Costs = new CostResources
         {
             Food = 1,
-            Metal = 1,
+            Rock = 1,
             Peasants = 1,
             Wood = 1
         };
