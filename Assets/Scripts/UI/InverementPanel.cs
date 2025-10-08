@@ -7,8 +7,9 @@ public class InverementPanel : MonoBehaviour
     public TMP_Text Title;
     public Image Image;
 
-    public UnityEngine.UIElements.ScrollView InvirenmentPropertyPanel;
+    public Transform InvirenmentPropertyPanel;
     public GameObject InvirenmentPropertyPrefab;
+    public Transform PropertyPanelContent;
 
     public void Show(IInvirenment invirenment, Sprite sprite)
     {
@@ -23,12 +24,19 @@ public class InverementPanel : MonoBehaviour
         Title.text = terrainItem.Title;
         Image.sprite = sprite;
 
-        
-
-        foreach (var invirenment in terrainItem.AvailableInvirenments)
+        foreach (Transform child in PropertyPanelContent)
         {
-            //invirenment.Build();
+            Destroy(child.gameObject);
         }
+
+        foreach (IInvirenment invirenment in terrainItem.AvailableInvirenments)
+        {
+            GameObject property = Instantiate(InvirenmentPropertyPrefab, PropertyPanelContent);
+
+            property.GetComponentInChildren<TMP_Text>().text = invirenment.Title;
+        }
+
+        InvirenmentPropertyPanel.GetComponentInChildren<Scrollbar>().value = 1.35f;
 
         gameObject.SetActive(true);
     }
