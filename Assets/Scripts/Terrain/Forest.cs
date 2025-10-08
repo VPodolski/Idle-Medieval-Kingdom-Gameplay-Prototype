@@ -40,7 +40,7 @@ public class Forest : MonoBehaviour, ITerrainItem
             Food = 1,
             Peasants = 1,
             Rock = 1,
-            Wood = 1
+            Wood = 0
         };
         sawmill.WoodProductionIncrease = 0.1m;
 
