@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.U2D;
 using UnityEngine.UI;
 
 public class InverementPanel : MonoBehaviour
@@ -8,21 +7,28 @@ public class InverementPanel : MonoBehaviour
     public TMP_Text Title;
     public Image Image;
 
-    void Start()
-    {
-        
-    }
+    public UnityEngine.UIElements.ScrollView InvirenmentPropertyPanel;
+    public GameObject InvirenmentPropertyPrefab;
 
-    // Update is called once per frame
-    void Update()
+    public void Show(IInvirenment invirenment, Sprite sprite)
     {
-        
-    }
-
-    public void Show(string title, Sprite sprite)
-    {
-        Title.text = title;
+        Title.text = invirenment.Title;
         Image.sprite = sprite;
+
+        gameObject.SetActive(true);
+    }
+
+    public void Show(ITerrainItem terrainItem, Sprite sprite)
+    {
+        Title.text = terrainItem.Title;
+        Image.sprite = sprite;
+
+        
+
+        foreach (var invirenment in terrainItem.AvailableInvirenments)
+        {
+            //invirenment.Build();
+        }
 
         gameObject.SetActive(true);
     }

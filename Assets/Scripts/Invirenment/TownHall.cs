@@ -26,15 +26,21 @@ public class NewMonoBehaviourScript : MonoBehaviour, IInvirenment
         sprite = GetComponent<SpriteRenderer>().sprite;
     }
 
+
     private void OnMouseDown()
     {
         if (!UIManager.Instance.IsInvirenmentPanelActive())
         {
-            UIManager.Instance.ShowInvirenmentPanel("Ратуша", sprite);
+            UIManager.Instance.ShowInvirenmentPanel(this, sprite);
         }
         else
         {
             UIManager.Instance.HideInvirenmentPanel();
         }
+    }
+
+    public void Build()
+    {
+        
     }
 }

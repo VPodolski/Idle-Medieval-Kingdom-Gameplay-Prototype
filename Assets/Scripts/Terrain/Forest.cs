@@ -21,7 +21,7 @@ public class Forest : MonoBehaviour, ITerrainItem
     {
         if (!UIManager.Instance.IsInvirenmentPanelActive())
         {
-            UIManager.Instance.ShowInvirenmentPanel(Title, sprite);
+            UIManager.Instance.ShowInvirenmentPanel(this, sprite);
         }
         else
         {
@@ -31,7 +31,23 @@ public class Forest : MonoBehaviour, ITerrainItem
 
     private IEnumerable<IInvirenment> GetAvailableInvirenment()
     {
-        var result = new List<IInvirenment>();
+        var sawmill = gameObject.AddComponent<Sawmill>();
+        sawmill.Title = "Лесопилка";
+        sawmill.Level = 1;
+        sawmill.ParentForest = this;
+        sawmill.Costs = new CostResources
+        {
+            Food = 1,
+            Peasants = 1,
+            Rock = 1,
+            Wood = 1
+        };
+        sawmill.WoodProductionIncrease = 0.1m;
+
+        var result = new List<IInvirenment>
+        {
+            sawmill
+        };
 
         return result;
     }

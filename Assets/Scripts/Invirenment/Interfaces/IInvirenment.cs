@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using UnityEngine;
 
 public interface IInvirenment
 {
@@ -7,4 +6,6 @@ public interface IInvirenment
     int Level { get; set; }
     CostResources Costs { get; set; }
     IEnumerable<IInvirenmentProperty> Properties { get; set; }
+
+    public void Build();
 }

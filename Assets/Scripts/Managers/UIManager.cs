@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
@@ -18,9 +19,14 @@ public class UIManager : MonoBehaviour
         return inverementPanel.isActiveAndEnabled;
     }
 
-    public void ShowInvirenmentPanel(string title, Sprite sprite)
+    public void ShowInvirenmentPanel(ITerrainItem terrainItem, Sprite sprite)
     {
-        inverementPanel.Show(title, sprite);
+        inverementPanel.Show(terrainItem, sprite);
+    }
+
+    public void ShowInvirenmentPanel(IInvirenment invirenment, Sprite sprite)
+    {
+        inverementPanel.Show(invirenment, sprite);
     }
 
     public void HideInvirenmentPanel()
@@ -32,4 +38,6 @@ public class UIManager : MonoBehaviour
     {
         resourcesPanel.UpdateResources(wood.ToString(), food.ToString(), rock.ToString(), peasants.ToString());
     }
+
+
 }
