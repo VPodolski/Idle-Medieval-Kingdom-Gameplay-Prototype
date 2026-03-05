@@ -4,16 +4,20 @@ using UnityEngine;
 public class Sawmill : MonoBehaviour, IInvirenment
 {
     public string Title { get; set; }
+    public string PathToSprite { get; set; }
     public int Level { get; set; }
+
     public decimal WoodProductionIncrease;
+
     public CostResources Costs { get; set; }
+
     public IEnumerable<IInvirenmentProperty> Properties { get; set; }
 
     public Forest ParentForest;
 
     public Sawmill()
     {
-
+        PathToSprite = "Material/Textures/Envirement/Terrain/Sawmill";
     }
 
     public void Start()

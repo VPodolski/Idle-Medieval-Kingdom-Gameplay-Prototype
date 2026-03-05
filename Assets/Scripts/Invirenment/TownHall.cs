@@ -1,18 +1,19 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class NewMonoBehaviourScript : MonoBehaviour, IInvirenment
+public class TownHall : MonoBehaviour, IInvirenment
 {
     private Sprite sprite;
-
     public string Title { get; set; }
     public int Level { get; set; }
     public CostResources Costs { get; set; }
     public IEnumerable<IInvirenmentProperty> Properties { get; set; }
+    public string PathToSprite { get; set; }
 
     void Start()
     {
         Title = "Ратуша";
+        PathToSprite = "Assets/Material/Textures/Envirement/Castle/Castle.png";
         Level = 1;
 
         Costs = new CostResources

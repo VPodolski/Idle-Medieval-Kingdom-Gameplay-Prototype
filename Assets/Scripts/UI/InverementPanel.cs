@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -34,6 +35,9 @@ public class InverementPanel : MonoBehaviour
             GameObject property = Instantiate(InvirenmentPropertyPrefab, PropertyPanelContent);
 
             property.GetComponentInChildren<TMP_Text>().text = invirenment.Title;
+
+            Sprite invirenmentSprite = Resources.Load<Sprite>(invirenment.PathToSprite);
+            property.transform.Find("Sprite").GetComponent<Image>().sprite = invirenmentSprite;
         }
 
         InvirenmentPropertyPanel.GetComponentInChildren<Scrollbar>().value = 1.35f;

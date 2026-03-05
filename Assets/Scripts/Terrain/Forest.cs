@@ -32,6 +32,7 @@ public class Forest : MonoBehaviour, ITerrainItem
     private IEnumerable<IInvirenment> GetAvailableInvirenment()
     {
         var sawmill = gameObject.AddComponent<Sawmill>();
+
         sawmill.Title = "Лесопилка";
         sawmill.Level = 1;
         sawmill.ParentForest = this;
