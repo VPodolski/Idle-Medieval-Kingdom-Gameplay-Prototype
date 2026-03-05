@@ -13,7 +13,7 @@ public class TownHall : MonoBehaviour, IInvirenment
     void Start()
     {
         Title = "Ратуша";
-        PathToSprite = "Assets/Material/Textures/Envirement/Castle/Castle.png";
+        PathToSprite = "Material/Textures/Envirement/Castle/Castle";
         Level = 1;
 
         Costs = new CostResources
@@ -25,6 +25,7 @@ public class TownHall : MonoBehaviour, IInvirenment
         };
 
         sprite = GetComponent<SpriteRenderer>().sprite;
+        Properties = new List<IInvirenmentProperty>();
     }
 
 

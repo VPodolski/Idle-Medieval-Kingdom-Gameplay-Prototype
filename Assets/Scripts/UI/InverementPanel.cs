@@ -50,6 +50,11 @@ public class InverementPanel : MonoBehaviour
         Title.text = null;
         Image.sprite = null;
 
+        foreach (Transform child in PropertyPanelContent)
+        {
+            Destroy(child.gameObject);
+        }
+
         gameObject.SetActive(false);
     }
 }
