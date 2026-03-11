@@ -8,13 +8,15 @@ public class Forest : MonoBehaviour, ITerrainItem
     public TerrainTypes Type { get; set; }
     public IEnumerable<IInvirenment> AvailableInvirenments { get; set; }
     Sprite sprite { get; set; }
-    
+    public Transform location { get; set; }
+
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>().sprite;
         Title = "Лес";
         Type = TerrainTypes.Forest;
         AvailableInvirenments = GetAvailableInvirenment();
+        location = transform;
     }
 
     private void OnMouseDown()
@@ -35,7 +37,6 @@ public class Forest : MonoBehaviour, ITerrainItem
 
         sawmill.Title = "Лесопилка";
         sawmill.Level = 1;
-        sawmill.ParentForest = this;
         sawmill.Costs = new CostResources
         {
             Food = 1,

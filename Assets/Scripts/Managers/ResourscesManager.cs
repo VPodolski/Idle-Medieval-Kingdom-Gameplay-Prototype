@@ -46,7 +46,12 @@ public class ResourscesManager : MonoBehaviour
         PeasantsProduction = 0.1m;
     }
 
-    public bool SpendResources(decimal wood, decimal food, decimal rock, decimal peasants)
+    public bool TrySpendResources(CostResources costs)
+    {
+        return TrySpendResources(costs.Wood, costs.Food, costs.Rock, costs.Peasants);
+    }
+
+    public bool TrySpendResources(decimal wood, decimal food, decimal rock, decimal peasants)
     {
         var result = true;
 

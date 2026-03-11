@@ -6,6 +6,7 @@ public interface IInvirenment
     string PathToSprite { get; set; }
     int Level { get; set; }
     CostResources Costs { get; set; }
+    ITerrainItem ParentTerrainItem { get; set; }
     IEnumerable<IInvirenmentProperty> Properties { get; set; }
 
     public void Build();

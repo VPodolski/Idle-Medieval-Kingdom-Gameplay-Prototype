@@ -32,9 +32,11 @@ public class InverementPanel : MonoBehaviour
 
         foreach (IInvirenment invirenment in terrainItem.AvailableInvirenments)
         {
+            invirenment.ParentTerrainItem = terrainItem;
             GameObject property = Instantiate(InvirenmentPropertyPrefab, PropertyPanelContent);
 
             property.GetComponentInChildren<TMP_Text>().text = invirenment.Title;
+            property.transform.Find("ActionBtn").GetComponent<Button>().onClick.AddListener(invirenment.Build);
 
             Sprite invirenmentSprite = Resources.Load<Sprite>(invirenment.PathToSprite);
             property.transform.Find("Sprite").GetComponent<Image>().sprite = invirenmentSprite;

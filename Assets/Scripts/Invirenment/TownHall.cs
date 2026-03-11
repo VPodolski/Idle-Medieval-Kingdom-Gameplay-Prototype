@@ -9,6 +9,7 @@ public class TownHall : MonoBehaviour, IInvirenment
     public CostResources Costs { get; set; }
     public IEnumerable<IInvirenmentProperty> Properties { get; set; }
     public string PathToSprite { get; set; }
+    public ITerrainItem ParentTerrainItem { get; set; }
 
     void Start()
     {
